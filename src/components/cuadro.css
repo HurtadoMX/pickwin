@@ -1,0 +1,121 @@
+
+.containerCuadroLeft{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    float: left;
+}
+
+.containerCuadroRight{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    float: right;
+}
+
+.agroupLeft{
+    width: 16vw;
+    margin-top: 10px;
+    margin-right: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 2px solid #000;
+}
+
+.agroupCuartos{
+    width: 16vw;
+    margin-top: 17vh;
+    margin-right: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 2px solid #000;
+}
+
+.agroupSemis{
+    width: 16vw;
+    margin-top: 50vh;
+    margin-right: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 2px solid #000;
+}
+
+.agroupFinal{
+    width: 16vw;
+    margin-top: 17vh;
+    margin-right: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 2px solid #000;
+}
+
+.numeroPartido{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.individual{
+    display: flex;
+    width: 100%;
+    border: 1px solid #000;
+
+}
+
+
+
+input{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    width: 26vw;
+    border: 1px solid #000;
+
+    margin-top: 2vh;
+}
+
+h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid #000; */
+    width: 80%;
+}
+
+.left{
+     
+}
+
+.cuartosHome{
+    position: relative;
+    margin-top: -127%;
+    margin-left: 20vw;
+}
+
+.semisHome{
+    position: relative;
+    margin-top: -136%;
+    margin-left: 40vw;
+}
+
+.finalHome{
+    position: relative;
+    margin-top: -60%;
+    margin-left: 60vw;
+}
+/* ESTILOS PARA EL INPUT */
