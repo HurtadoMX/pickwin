@@ -18,10 +18,42 @@ const Home = () => {
 
     
     let filtro = allPickers.filter(e=> {return e.away_team !== null})
+    const [cuartosTeams, setCuartosTeams] = useState(new Array(filtro.length));
+    const [semisTeams, setSemisTeams] = useState(new Array(filtro.length / 2));
+    const [finalTeams, setFinalTeams] = useState(new Array(filtro.length) / 4);
+    // const [Teams, setTeams] = useState([]);
     
     console.log("filtro", filtro)
 
     let contador = 1
+    
+    const handleOnSelectWinner = (partido, teamIndex, short_name) => {
+        // console.log("match:", partido);
+        // console.log("team info: ", teamIndex, short_name);
+
+        // let partidoIndex = 0;
+        // if (partido % 2 === 0) {
+        //     partidoIndex = partido / 2;
+        // } else if (partido % 2 === 1) {
+        //     partidoIndex = (partido + 1) / 2;
+        // }
+
+        // let newTeams = cuartosTeams;
+        // newTeams[partido - 1] = {
+        //     short_name
+        // };
+        // console.log("nextTeams: ", newTeams);
+        setCuartosTeams((prev) => {
+            ...prev,
+            prev[partido - 1] = { short_name }
+        }
+        );
+    }
+
+    useEffect(() => {
+        console.log("changing something...");
+    }, [cuartosTeams]);
+    // }, [cuartosTeams, semisTeams, finalTeams]);
 
   return (
     <>
@@ -29,42 +61,55 @@ const Home = () => {
 
         {
             
-            filtro && filtro.map((e)=>{
+            filtro && filtro.map((e, index)=>{
                     return(
-                        <>
-                    <div className="agroupLeft">
+
+                    <div className="agroupLeft" key={"octavos-"+index}>
                         <h3 className="numeroPartido">PARTIDO #{contador++}</h3>
 
                     <div className="containerCuadroLeft">
                         <div className="individual">
                             <h3>{e.away_team.short_name}</h3>
-                            <input type="radio" />
+                            <input
+                                name={"radio-octavos-"+index}
+                                type="radio"
+                                onClick={() => handleOnSelectWinner(
+                                    index + 1,
+                                    0,
+                                    e.away_team.short_name
+                                )}
+                            />
                         </div>
                         <div className="individual">
                             <h3>{e.home_team.short_name}</h3>
-                        <input type="radio" />
-                            
+                            <input
+                                name={"radio-octavos-"+index}
+                                type="radio"
+                                onClick={() => handleOnSelectWinner(
+                                    index + 1,
+                                    1,
+                                    e.home_team.short_name
+                                )}
+                            />
                         </div>
-
                     </div>
                     <br />
-                    </div>
-                    </>)
+                    </div>)
                     
                 
             })
         }
         </div>
         <div className="cuartosHome">
-            <Cuartos/>
+            <Cuartos teams={cuartosTeams} semisTeams={semisTeams} setSemisTeams={setSemisTeams} />
         </div>
 
         <div className="semisHome">
-            <Semis/>
+            <Semis teams={semisTeams} finalTeams={finalTeams} setFinalTeams={setFinalTeams} />
         </div>
 
         <div className="finalHome">
-            <Final/>
+            <Final teams={finalTeams} />
         </div>
 
         {/* <div className="right">

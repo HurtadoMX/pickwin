@@ -1,21 +1,22 @@
 import React from 'react'
 
-const Final = () => {
+const Final = ({teams}) => {
+  console.log("final teams: ", teams);
 
-    let final = [
-        {
-          equipo_visitante: { short_name: "United States", abbreviation: "USA" },
-          away_team_id: 274,
-          equipo_local: {
-            name: "Netherlands",
-            short_name: "Netherlands",
-            abbreviation: "NED",
-          },
-          sort_order: 17,
-          sort_status: 1,
-          stage_id: 25,
-        },
-      ];
+    // let final = [
+    //     {
+    //       equipo_visitante: { short_name: "United States", abbreviation: "USA" },
+    //       away_team_id: 274,
+    //       equipo_local: {
+    //         name: "Netherlands",
+    //         short_name: "Netherlands",
+    //         abbreviation: "NED",
+    //       },
+    //       sort_order: 17,
+    //       sort_status: 1,
+    //       stage_id: 25,
+    //     },
+    //   ];
     
     let contador = 15
 
@@ -26,7 +27,7 @@ const Final = () => {
 
         {
             
-            final && final.map((e)=>{
+            teams && teams.map((e)=>{
                     return(
                         <>
                     <div className="agroupFinal">
